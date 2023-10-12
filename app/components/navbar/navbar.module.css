@@ -1,0 +1,32 @@
+.container{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.social{
+    display:flex;
+    gap:20px;
+    flex:1;
+    justify-content: flex-end;
+
+}
+.logo{
+    font-family: 'Bree Serif', serif;
+    font-size: 45px;
+    flex:1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.links{
+    display:flex;
+    gap:20px;
+    align-items: center;
+
+
+    flex:1.1;
+    
+
+}
