@@ -10,9 +10,9 @@ const Navbar:FC<NavbarProps> = () => {
     <div className={styles.container}>
         <div className={styles.links}>
             <ThemeToggle/>
-          <Link href="/"  >Home</Link>
-          <Link href="/home"  >Contacts</Link>
-          <Link href="/abot">About</Link>
+          <Link href="/"  className={styles.link}>Home</Link>
+          <Link href="/home" className={styles.link}  >Contacts</Link>
+          <Link href="/abot" className={styles.link}>About</Link>
           <AuthLinks/>
 
 

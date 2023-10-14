@@ -1,5 +1,6 @@
 .container{
-    width: 148px !important;;
+    width: 148px !important;
+    max-width: 150px !important;
     height:20px;
     display:flex;
     cursor:pointer;
@@ -7,6 +8,7 @@
     justify-content:space-between ;
     border-radius: 50px;
     position:relative;
+    align-items: center;
 
 }
 
@@ -15,8 +17,16 @@
     height:15px;
     border-radius: 50%;
     background-color:white ;
-    position:absolute   ;
-    left:1%;
+    position:absolute;
+    transition: all 5s ease-in-out;
     top:15%;
 
+}
+
+@media screen and (max-width:768px) {
+    .container{
+        width: 60px !important;
+    }
+
+    
 }

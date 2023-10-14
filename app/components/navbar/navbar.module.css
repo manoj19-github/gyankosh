@@ -30,3 +30,57 @@
     
 
 }
+
+
+/* media queries */
+
+@media screen and (max-width:1280px) {
+    .logo{
+        font-size:32px;
+    }
+    .links{
+        font-size:18px;
+        gap:15px;
+    }
+
+    
+}
+
+
+@media screen and (max-width:1024px) {
+    .social{
+        display:none;
+    }
+    .links{
+        text-align:left;
+    }
+
+    
+}
+
+
+@media screen and (max-width:768px) {
+    .logo{
+        font-size:24px;
+    }
+
+    
+}
+
+@media screen and (max-width:648px) {
+    .link{
+        display:none;
+    }
+    .links{
+        flex:0.2;
+   
+        gap:2px;
+    }
+    .container{
+        justify-content: flex-start;
+    }
+
+
+
+    
+}
