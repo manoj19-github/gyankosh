@@ -16,6 +16,22 @@
   font-family: 'Prompt', sans-serif;
 }
 
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #0d162d;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #0e0e0f;
+}
+
+
+
 
 /*   dark mode styles */
 
@@ -88,3 +104,4 @@ a:hover{
     padding-right:10px;
   }
 }
+
