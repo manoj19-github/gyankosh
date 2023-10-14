@@ -42,9 +42,11 @@ const FeaturedPost:FC<FeaturedPostProps> = () => {
             Hey I am MERN Stack developer
             Lorem ipsum dolor sit amet consectetur adipisicing elit. 
           </h1>
+          <button className={`${styles.button} ${styles.smallButton}`}>Read More</button>
           <div className={styles.post}>
             <div className={styles.imgContainer}>
               <Image src={"/myimage.jpg"} alt="logo" className={styles.images} fill/>
+              <div className={styles.overlay}/>
             </div>
 
             <div className={styles.textContainer}>

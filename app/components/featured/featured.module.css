@@ -4,18 +4,19 @@
 
 .post{
     margin-top:20px;
-    overflow:hidden;
     display:flex;
     align-items: center;
     gap:50px;
+    position: relative;
 }
-
+.button.smallButton{
+    display: none;
+}
 .title{
-    font-size: 28px;
+    font-size: 23px;
 }
 .imgContainer{
     flex:1;
-    overflow:hidden;
     position:relative;
     height:400px;
     border-radius: 3px;
@@ -33,7 +34,7 @@
 
 }
 .postTitle{
-    font-size: 25px;
+    font-size: 18px;
 }
 .postDesc{
     font-size:15px;
@@ -56,4 +57,45 @@
     background: var(--bg);
     color:var(--textColor);
     border:1px solid var(--textColor);
+}
+
+@media screen and (max-width:1280px) {
+    .title{
+        font-size: 20px;
+    }
+    
+}
+
+@media screen and (max-width:1023px) {
+   
+    .textContainer{
+        display: none;
+    }
+    .title{
+        z-index:6;
+        position: absolute;
+        top:35%;
+
+        left:8%;
+        right:2%;
+
+    }
+    .imgContainer{
+        
+        position:relative;
+        margin-top: 20px;
+        height:350px;
+        border-radius: 3px;
+    }
+    .overlay{
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        z-index:5;
+        background-color: rgba(0,0,0,0.3);
+    }
+ 
+    
 }
