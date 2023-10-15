@@ -14,12 +14,13 @@ const CardList: FC<CardListProps> = () => {
           {[...new Array(10)].map((self, index) => (
             <Cards isLast={index !== 9} key={index} />
           ))}
+          <Pagination />
         </div>
         <div className={styles.sidebar}>
           <Menu/>
         </div>
       </div>
-      <Pagination />
+      
     </div>
   );
 };

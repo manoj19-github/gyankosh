@@ -1,0 +1,70 @@
+.container{
+    margin-top:50px;
+}
+.title{
+    color:var(--softTextColor);
+    margin-bottom:40px;
+}
+.write{
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    gap:20px;
+}
+.writeinput{
+    padding:10px;
+    width:100%;
+    outline: none;
+    border: none;
+
+}
+.writeinput:focus{
+    border: none;
+}
+.button{
+    padding:10px 20px;
+    background-color: crimson;
+    color:white;
+    cursor:pointer;
+    border:none;
+
+}
+
+.user{
+    display:flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom:5px;
+    margin-top: 10px;
+
+}
+.userImageContainer{
+    width:50px;
+    height:50px;
+    position:relative;
+    
+    
+}
+.profileImage{
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.comments{
+    margin-top:30px;
+}
+.comment{
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+    padding-bottom:10px;
+    
+}
+.comment:not(:last-of-type){
+    border-bottom: 1px solid var(--dividerColor);
+}
+.commentText{
+    margin-left:20px;
+        text-align:justify; 
+    text-justify:inter-word;
+}

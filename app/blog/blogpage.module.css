@@ -1,0 +1,15 @@
+.title{
+    color:white;
+    padding:5px 10px;
+    text-align:center;
+    margin-top:30px;
+    font-weight: 500;
+    font-size: 30px;
+    border-bottom:2px solid var(--dividerColor);
+}
+
+.content{
+    display: flex;
+    gap:20px;
+
+}

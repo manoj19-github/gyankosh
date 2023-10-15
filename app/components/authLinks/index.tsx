@@ -12,7 +12,7 @@ const AuthLinks = () => {
   return (
     <Fragment>
       <div onClick={() => setOpen((prev) => !prev)} className={styles.burger}>
-        <Icon size={20} />
+        <Icon size={20 } />
       </div>
       {isLoggedIn ? (
         <Link href="/login" className={styles.link}>

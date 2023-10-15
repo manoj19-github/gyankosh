@@ -10,7 +10,7 @@
     display: flex;
     align-items: start;
     justify-content: space-between;
-    gap:8px;
+    gap:18px;
 
 }
 .cardContainer{
@@ -23,7 +23,35 @@
 
 }
 .sidebar{
-    flex:0.25;
-    width:525%;
+    flex:0.25;    
+}
+
+@media screen and (max-width:1024px) {
+    .title{
+        margin:20px 0px;
+        font-size:20px;
+        text-align: center;
+    }
     
+}
+
+@media screen and (max-width:768px) {
+    .post{
+        display: flex;
+        flex-direction: column;
+        
+
+    }
+    .sidebar{
+        flex:1;    
+    }
+    .cardContainer{
+        flex:1;
+        width:100%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    
+    }
 }

@@ -11,6 +11,9 @@ const Cards:FC<CardsProps> = ({isLast}) => {
         <div className={styles.imageContainer}>
           <Image src={'/Mask-group.png'} alt="logo" fill />
         </div>
+        <div className={styles.imageContainerMob}>
+          <img src={'/Mask-group.png'} alt="logo"  className={styles.image}/>
+        </div>
         <div className={styles.textContainer}>
             <div className={styles.details}>
                 <span className={styles.date}>1/10/2023</span>
