@@ -28,6 +28,8 @@
     flex-direction: column;
     gap:20px;
     display:flex;
+    text-align:justify; 
+    text-justify:inter-word;
 }
 .image{
     object-fit: cover;
