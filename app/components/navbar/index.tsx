@@ -11,7 +11,6 @@ const Navbar:FC<NavbarProps> = () => {
         <div className={styles.links}>
             <ThemeToggle/>
           <Link href="/"  className={styles.link}>Home</Link>
-          <Link href="/home" className={styles.link}  >Contacts</Link>
           <Link href="/abut" className={styles.link}>About</Link>
           <AuthLinks/>
 
