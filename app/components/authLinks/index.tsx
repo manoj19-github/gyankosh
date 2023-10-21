@@ -4,11 +4,15 @@ import React, { Fragment, useState } from "react";
 import styles from "./authLinks.module.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
+import { useRouter } from "next/navigation";
 const AuthLinks = () => {
   const isLoggedIn = false;
+  const router = useRouter();
   const [open, setOpen] = useState<boolean>(false);
   const Icon = open ? AiOutlineClose : GiHamburgerMenu;
-
+  const navigateToWritePage = ()=>{
+    router.push("/write")
+  }
   return (
     <Fragment>
       <div onClick={() => setOpen((prev) => !prev)} className={styles.burger}>
@@ -20,8 +24,8 @@ const AuthLinks = () => {
         </Link>
       ) : (
         <>
-          <div className={styles.link}>
-            <p>My Profile </p>
+          <div className={styles.link} onClick={navigateToWritePage}>
+            <p>Write your blog </p>
           </div>
         </>
       )}
@@ -42,8 +46,8 @@ const AuthLinks = () => {
             </Link>
           ) : (
             <>
-              <div className={styles.smallLink}>
-                <p>My Profile </p>
+              <div className={styles.smallLink} onClick={navigateToWritePage}>
+                <p>Write your blog </p>
               </div>
             </>
           )}

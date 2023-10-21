@@ -18,7 +18,7 @@
 }
 .item{
     display:flex;
-    gap:5px;
+    gap:8px;
     padding:0 5px;
     align-items: center;
     text-decoration: none;
@@ -35,7 +35,7 @@
     text-decoration: none;
 }
 .imageContainer{
-    flex:0.3;
+    flex:0.2;
     position:relative;
     aspect-ratio: 1/1;
     border-radius: 50%;

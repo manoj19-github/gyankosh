@@ -21,7 +21,7 @@
 .writeinput:focus{
     border: none;
 }
-.button{
+.button,.mobButton{
     padding:10px 20px;
     background-color: crimson;
     color:white;
@@ -68,3 +68,31 @@
         text-align:justify; 
     text-justify:inter-word;
 }
+.mobButton{
+    display:none;
+    padding:5px 10px;
+}
+
+  
+  @media screen and (max-width:640px){
+    .write{
+        display:flex;
+        align-items: center;
+        justify-content:space-between;
+        gap:5px;
+    }
+    .writeinput{
+        padding:4px;
+        width:100%;
+        outline: none;
+        border: none;
+    
+    }
+    .mobButton{
+        display:flex;
+    }
+    .button{
+        display:none;
+    }
+  }
+  

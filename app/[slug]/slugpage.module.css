@@ -59,3 +59,34 @@
     flex:0.3;
 
 }
+
+
+@media screen and (max-width:1024px){
+    .wrapper{
+      max-width:968px;
+      padding-left:16px;
+      padding-right:16px;
+    }
+  }
+  
+  @media screen and (max-width:640px){
+    .content{
+        display:flex;
+        flex-direction: column;
+        gap:20px;
+    }
+    .userTextContainer{
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+    .textContainer{
+        padding:0 10px;
+    }
+    .title{
+        font-size: 30px;
+    }
+    .post{
+        padding:0 10px;
+    }
+  }
+  

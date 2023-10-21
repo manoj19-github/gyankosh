@@ -1,0 +1,47 @@
+.container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+}
+.wrapper{
+    background-color: var(--softBg);
+    padding:140px 200px;
+    display:flex;
+    flex-direction: column;
+    gap:10px
+}
+
+.socialButton{
+    padding:10px 20px;
+    border-radius: 5px;
+    border:none;
+    font-weight: bold;
+    cursor:pointer;
+
+
+}
+
+.googleBtn{
+    background-color:#ff5555 ;
+    margin-bottom:20px;
+}
+.githubBtn{
+    background-color: black;
+}
+
+
+  
+  @media screen and (max-width:640px){
+    .wrapper{
+        padding: 10px 2px;
+        width:96%;
+        margin-top:50px;
+    }
+    .socialButton{
+        width:100%;
+        font-size:14px;
+    }
+  }
+  
+  

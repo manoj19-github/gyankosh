@@ -3,7 +3,7 @@ import styles from "./comment.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import CommentText from "./CommentText";
-
+import {IoSendSharp} from "react-icons/io5"
 interface CommentSectionProps {}
 const CommentSection: FC<CommentSectionProps> = () => {
   const status = true;
@@ -17,6 +17,9 @@ const CommentSection: FC<CommentSectionProps> = () => {
             className={styles.writeinput}
           ></textarea>
           <button className={styles.button}>Send</button>
+          <button className={styles.mobButton}>
+          <IoSendSharp/>
+          </button>
         </div>
       ) : (
         <Link href="/login">Login to write a comment</Link>
