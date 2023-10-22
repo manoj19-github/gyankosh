@@ -4,15 +4,24 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.bubble.css";
 import styles from "./writeEditor.module.css";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 interface WriteEditorProps {}
 const WriteEditor: FC<WriteEditorProps> = (): JSX.Element => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
   const [value, setValue] = useState<any>("");
+  const router =useRouter();
+  const {data,status} = useSession();
+    
   useEffect(() => {
     setIsMounted(true);
   }, []);
+  if(status==="loading") return(
+    <div>Loading ...</div>
+  )
+    if(status==="unauthenticated") router.push("/")
   if (!isMounted) return <></>;
 
   return (
