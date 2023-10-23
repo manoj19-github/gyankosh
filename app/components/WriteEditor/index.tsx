@@ -41,7 +41,8 @@ const WriteEditor: FC<WriteEditorProps> = ({categoryList}): JSX.Element => {
       userId:userData?.id,
       title:postTitle,
       description:value,
-      assetUrl
+      assetUrl,
+      category:postCat
 
 
     }
