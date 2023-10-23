@@ -6,6 +6,8 @@ import Footer from "./components/footer";
 import { ThemeContextProvider } from "./context/ThemeContext";
 import ThemeProvider from "./providers/ThemeProvider";
 import AuthProvider from "./providers/AuthProvider";
+import ClientOnly from "./components/ClientOnly";
+import ToasterProvider from "./components/providers/ToasterProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <ClientOnly>
+          <ToasterProvider/>
+        </ClientOnly>
         <AuthProvider>
           <ThemeContextProvider>
             <ThemeProvider>
