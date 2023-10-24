@@ -6,7 +6,14 @@ import Featured from './components/featured'
 import CategoryList from './components/categoryList'
 import CardList from './components/cardList'
 import MenuList from './components/menuList/index '
-export default function Home() {
+import getAllPost from './serverActions/getAllPosts'
+
+export default async function Home() {
+  const allPost = await getAllPost();
+  
+  
+  
+
   return (
     <main className={styles.container}>
       <Featured/>
