@@ -8,20 +8,28 @@ import CardList from './components/cardList'
 import MenuList from './components/menuList/index '
 import getAllPost from './serverActions/getAllPosts'
 
-export default async function Home() {
-  const postsDataset = await getAllPost();
-  console.log('postsDataset: ', postsDataset);
+export default async function Home({searchParams}:{  searchParams?: { [key: string]: string | string[] | undefined }}) {
+  console.log('searchParams: ', searchParams);
+  let postsDataset;
+  if(Number(searchParams?.page) >0){
+    postsDataset = await getAllPost(Number(searchParams?.page));
+
+  }else{
+    postsDataset = await getAllPost();
+  }
+  
+  
 
   
   
-  
+  if(!postsDataset) return <></>
 
   return (
     <main className={styles.container}>
       <Featured totalLength={postsDataset.totalLength} postData={postsDataset?.postData} />
       <CategoryList/>
       <div className={styles.content}>
-        <CardList postData={postsDataset?.postData}/>
+        <CardList postData={postsDataset?.postData} pageIndex={postsDataset.pageIndex} totalLength={postsDataset.totalLength}/>
       </div>
 
 

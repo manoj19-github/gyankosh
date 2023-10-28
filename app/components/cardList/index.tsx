@@ -6,9 +6,11 @@ import Cards from "../cards";
 import Menu from "../menu";
 import { PostInterface } from "@/app/types";
 interface CardListProps {
-  postData:PostInterface[] | undefined
+ postData:PostInterface[] | undefined;
+ totalLength:number;
+ pageIndex:number;
 }
-const CardList: FC<CardListProps> = ({postData}) => {
+const CardList: FC<CardListProps> = ({postData,totalLength,pageIndex}) => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Recent Posts</h1>
@@ -17,7 +19,7 @@ const CardList: FC<CardListProps> = ({postData}) => {
           {!!postData && Array.isArray(postData) &&  postData.map((self, index) => (
             <Cards isLast={index !== 9} key={index} postData={self} />
           ))}
-          <Pagination />
+          <Pagination totalLength={totalLength} pageIndex={pageIndex} />
         </div>
         <div className={styles.sidebar}>
           <Menu/>

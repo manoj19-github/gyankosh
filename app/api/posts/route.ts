@@ -55,8 +55,9 @@ export async function GET(req:Request){
     try{
         const {searchParams} =await  new URL(req.url);
         console.log('searchParams: ', searchParams);
-        const page = searchParams.get("page");
+        let page:any = searchParams.get("page");
         console.log('page: ', page);
+        if(page==null || page== undefined) page=0;
         const totalPostCount =  await database.post.count({
             orderBy:{
                 createdAt:"desc"
@@ -83,7 +84,8 @@ export async function GET(req:Request){
         });
         return NextResponse.json({
             postData:safePostData as PostInterface[],
-            totalLength:totalPostCount
+            totalLength:totalPostCount,
+            pageIndex:page
         },{status:200})
 
 

@@ -1,10 +1,13 @@
 import database from "../utils/db.config"
 import { PostInterface } from '../types'
 import queryString from "query-string"
-const getAllPost=async(page=1)=>{
+const getAllPost=async(page=0)=>{
     try{
         const url = queryString.stringifyUrl({
             url:`${process.env.NEXT_PUBLIC_URL}/api/posts`,
+            query:{
+                page
+            }
            
         },{skipNull:true});
         
