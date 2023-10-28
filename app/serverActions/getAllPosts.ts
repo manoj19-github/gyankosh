@@ -1,31 +1,22 @@
 import database from "../utils/db.config"
 import { PostInterface } from '../types'
-const getAllPost=async()=>{
+import queryString from "query-string"
+const getAllPost=async(page=1)=>{
     try{
-        const allPost =  await database.post.findMany({
-            take:10,
-            skip:0,
-            include:{
-                cat:true,
-                user:true
-            },
-            orderBy:{
-                createdAt:"desc"
-            }
-        });
-        const safePostData:PostInterface[] = allPost?.map((self)=>{
-            return {
-                ...self,
-                createdAt:self.createdAt.toISOString(),
-                updatedAt:self.updatedAt.toISOString()
+        const url = queryString.stringifyUrl({
+            url:`${process.env.NEXT_PUBLIC_URL}/api/posts`,
+           
+        },{skipNull:true});
+        
+        const resp = await fetch(url);
 
-            }
-        });
-        return safePostData
-
+        const data = await resp.json();
+        console.log('data: ', data);
+        return data;
+        
         
     }catch(error:any){
-        console.log("error occured");
+        console.log("error occured",error);
     }
 
 }

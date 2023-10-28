@@ -2,7 +2,7 @@ export interface ICategories{
     id: string;
     slug: string;
     title: string;
-    img?: string;
+    img: string|null;
 }
 
 export interface PostInterface {

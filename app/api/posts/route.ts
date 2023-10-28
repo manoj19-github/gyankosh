@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import database from "../../utils/db.config"
 import getCurrentUser from "@/app/serverActions/getCurrentUser";
+import { PostInterface } from "@/app/types";
 
 
 export async function POST(request:Request){
@@ -42,5 +43,58 @@ export async function POST(request:Request){
     console.log("error occured : ",error);
     return new NextResponse("Something went wrong", { status: 500 });
 }
+}
+
+
+
+
+
+
+const PAGE_LIMIT=10;
+export async function GET(req:Request){
+    try{
+        const {searchParams} =await  new URL(req.url);
+        console.log('searchParams: ', searchParams);
+        const page = searchParams.get("page");
+        console.log('page: ', page);
+        const totalPostCount =  await database.post.count({
+            orderBy:{
+                createdAt:"desc"
+            }
+        });
+        const allPost =  await database.post.findMany({
+            take:PAGE_LIMIT,
+            skip:Number(page)*PAGE_LIMIT,
+            include:{
+                cat:true,
+                user:true
+            },
+            orderBy:{
+                createdAt:"desc"
+            }
+        });
+        const safePostData:any[] = allPost?.map((self)=>{
+            return {
+                ...self,
+                createdAt:self.createdAt.toISOString(),
+                updatedAt:self.updatedAt.toISOString()
+
+            }
+        });
+        return NextResponse.json({
+            postData:safePostData as PostInterface[],
+            totalLength:totalPostCount
+        },{status:200})
+
+
+
+
+    }catch(error){
+        console.log("error occured 91",error);
+        return new NextResponse("Something went wrong", { status: 500 });
+
+
+
+    }
 }
 

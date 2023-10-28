@@ -9,17 +9,19 @@ import MenuList from './components/menuList/index '
 import getAllPost from './serverActions/getAllPosts'
 
 export default async function Home() {
-  const allPost = await getAllPost();
+  const postsDataset = await getAllPost();
+  console.log('postsDataset: ', postsDataset);
+
   
   
   
 
   return (
     <main className={styles.container}>
-      <Featured/>
+      <Featured totalLength={postsDataset.totalLength} postData={postsDataset?.postData} />
       <CategoryList/>
       <div className={styles.content}>
-        <CardList/>
+        <CardList postData={postsDataset?.postData}/>
       </div>
 
 
