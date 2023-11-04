@@ -1,12 +1,12 @@
 import Image from 'next/image'
-import Navbar from '../../components/navbar'
-import Footer from '../../components/footer'
+import Navbar from '../../../components/navbar'
+import Footer from '../../../components/footer'
 import styles from "../../homepage.module.css"
-import Featured from '../../components/featured'
-import CategoryList from '../../components/categoryList'
-import CardList from '../../components/cardList'
-import MenuList from '../../components/menuList/index '
-import getAllPost from '../../serverActions/getAllPosts'
+import Featured from '../../../components/featured'
+import CategoryList from '../../../components/categoryList'
+import CardList from '../../../components/cardList'
+import MenuList from '../../../components/menuList/index '
+import getAllPost from '../../../serverActions/getAllPosts'
 import getSidebarPost from '@/app/serverActions/getSidebarPost'
 
 export default async function Home({params}:{params: { paginate:any}}) {

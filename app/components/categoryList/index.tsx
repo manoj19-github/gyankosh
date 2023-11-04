@@ -20,7 +20,7 @@ const CategoryList: FC<CategoryListProps> = async () => {
           categories.map((self, index) => (
             <Fragment key={self.id}>
               <Link
-                href={`/blog?cat=${self.slug}`}
+                href={`/categories?cat=${self.slug}`}
                 className={`${styles.category} ${styles[`${self.slug}`]}`}
               >
                 <Image

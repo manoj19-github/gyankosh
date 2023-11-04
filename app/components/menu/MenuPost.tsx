@@ -2,105 +2,48 @@ import React, { FC } from "react";
 import styles from "./menu.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { PostInterface } from "@/app/types";
+import moment from "moment";
 interface MenuPostProps {
   withImage: boolean;
   title: string;
+  dataset:PostInterface[];
   subtitle: string;
 }
-const MenuPost: FC<MenuPostProps> = ({ withImage, title, subtitle }) => {
+const MenuPost: FC<MenuPostProps> = ({ withImage, title, subtitle,dataset }) => {
+  
   return (
     <div className={styles.container}>
       <h2 className={styles.subtitle}>{subtitle}</h2>
       <h1 className={styles.title}>{title}</h1>
       <div className={styles.items}>
-        <Link href="/" className={styles.item}>
-          {withImage ? (
-            <div className={styles.imageContainer}>
-              <Image src={"/Mask-group.png"} alt="logo" fill />
-            </div>
-          ) : (
-            <></>
-          )}
+        {
+          !!dataset && Array.isArray(dataset) && dataset.map((self,index)=>(
+            
+        <Link href={`/${self.id}`} className={styles.item} key={index}>
+        {withImage ? (
+          <div className={styles.imageContainer}>
+            <Image src={self.img} alt="logo" fill />
+          </div>
+        ) : (
+          <></>
+        )}
+        <div className={styles.textContainer}>
+          <span className={`${styles.category} ${styles.backend}`}>
+            {self.cat.title}
+          </span>
+          <p className={`${styles.postTitle} overflow_hidden_text2`}>
+            {self.title}
+          </p>
+          <div className={styles.detail}>
+            <span className={styles.username}>{self.user.name}</span>
+            <span className={styles.date}>- {moment(self.updatedAt).format('ll')}</span>
+          </div>
+        </div>
+      </Link>   
 
-          <div className={styles.textContainer}>
-            <span className={`${styles.category} ${styles.style}`}>Styles</span>
-            <p className={`${styles.postTitle} overflow_hidden_text2`}>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla
-              nesciunt, recusandae esse officiis nihil
-            </p>
-            <div className={styles.detail}>
-              <span className={styles.username}>Manoj Santra</span>
-              <span className={styles.date}>- 10.03.2023</span>
-            </div>
-          </div>
-        </Link>
-        <Link href="/" className={styles.item}>
-          {withImage ? (
-            <div className={styles.imageContainer}>
-              <Image src={"/Mask-group.png"} alt="logo" fill />
-            </div>
-          ) : (
-            <></>
-          )}
-
-          <div className={styles.textContainer}>
-            <span className={`${styles.category} ${styles.frontend}`}>
-              Frontend
-            </span>
-            <p className={`${styles.postTitle} overflow_hidden_text2`}>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla
-              nesciunt, recusandae esse officiis nihil
-            </p>
-            <div className={styles.detail}>
-              <span className={styles.username}>Manoj Santra</span>
-              <span className={styles.date}>- 10.03.2023</span>
-            </div>
-          </div>
-        </Link>
-        <Link href="/" className={styles.item}>
-          {withImage ? (
-            <div className={styles.imageContainer}>
-              <Image src={"/Mask-group.png"} alt="logo" fill />
-            </div>
-          ) : (
-            <></>
-          )}
-          <div className={styles.textContainer}>
-            <span className={`${styles.category} ${styles.backend}`}>
-              Backend
-            </span>
-            <p className={`${styles.postTitle} overflow_hidden_text2`}>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla
-              nesciunt, recusandae esse officiis nihil
-            </p>
-            <div className={styles.detail}>
-              <span className={styles.username}>Manoj Santra</span>
-              <span className={styles.date}>- 10.03.2023</span>
-            </div>
-          </div>
-        </Link>
-        <Link href="/" className={styles.item}>
-          {withImage ? (
-            <div className={styles.imageContainer}>
-              <Image src={"/Mask-group.png"} alt="logo" fill />
-            </div>
-          ) : (
-            <></>
-          )}
-          <div className={styles.textContainer}>
-            <span className={`${styles.category} ${styles.database}`}>
-              Database
-            </span>
-            <p className={`${styles.postTitle} overflow_hidden_text2`}>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla
-              nesciunt, recusandae esse officiis nihil
-            </p>
-            <div className={styles.detail}>
-              <span className={styles.username}>Manoj Santra</span>
-              <span className={styles.date}>- 10.03.2023</span>
-            </div>
-          </div>
-        </Link>
+          ))
+        }
       </div>
     </div>
   );

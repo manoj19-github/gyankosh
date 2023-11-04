@@ -9,8 +9,10 @@ interface CardListProps {
  postData:PostInterface[] | undefined;
  totalLength:number;
  pageIndex:number;
+ noPaginate?:boolean;
+ sidebarData:PostInterface[] ;
 }
-const CardList: FC<CardListProps> = ({postData,totalLength,pageIndex}) => {
+const CardList: FC<CardListProps> = ({postData,totalLength,pageIndex,noPaginate,sidebarData}) => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Recent Posts</h1>
@@ -19,10 +21,16 @@ const CardList: FC<CardListProps> = ({postData,totalLength,pageIndex}) => {
           {!!postData && Array.isArray(postData) &&  postData.map((self, index) => (
             <Cards isLast={index !== 9} key={index} postData={self} />
           ))}
-          <Pagination totalLength={totalLength} pageIndex={pageIndex} />
+          {
+            !noPaginate ? (
+              <Pagination totalLength={totalLength} pageIndex={pageIndex} />
+
+            ):(<></>)
+          }
+          
         </div>
         <div className={styles.sidebar}>
-          <Menu/>
+          <Menu  postData={sidebarData }/>
         </div>
       </div>
       

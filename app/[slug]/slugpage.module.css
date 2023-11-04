@@ -59,6 +59,13 @@
     flex:0.3;
 
 }
+.relatedContent{
+    margin:20px 0px;
+    border-top: 1px solid var(--dividerColor);
+    padding:15px;
+
+}
+
 
 
 @media screen and (max-width:1024px){
@@ -87,6 +94,10 @@
     }
     .post{
         padding:0 10px;
+    }
+    .relatedContent{
+        padding:20px 5px 10px 5px;
+    
     }
   }
   

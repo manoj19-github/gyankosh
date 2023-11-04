@@ -87,16 +87,9 @@ export async function GET(req:Request){
             totalLength:totalPostCount,
             pageIndex:page
         },{status:200})
-
-
-
-
     }catch(error){
         console.log("error occured 91",error);
         return new NextResponse("Something went wrong", { status: 500 });
-
-
-
     }
 }
 

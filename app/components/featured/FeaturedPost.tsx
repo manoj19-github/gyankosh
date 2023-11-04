@@ -4,6 +4,7 @@ import Image from "next/image"
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { PostInterface } from '@/app/types';
+import Link from 'next/link';
 
 interface FeaturedPostProps{
   postData:PostInterface[] | undefined;
@@ -58,7 +59,7 @@ const FeaturedPost:FC<FeaturedPostProps> = ({postData,totalLength}) => {
                 <div dangerouslySetInnerHTML={{__html:self.desc}}/>
               
               </div>
-              <button className={styles.button}>Read More</button>
+              <Link href={`/${self.id}`}  className={styles.button}>Read More</Link>
 
             </div>
 

@@ -11,7 +11,7 @@ const BlogPage:FC<BlogPageProps> = () => {
             Style Blog
         </div>
         <div>
-            <CardList/>
+            {/* <CardList noPaginate /> */}
         </div>
 
     </div>

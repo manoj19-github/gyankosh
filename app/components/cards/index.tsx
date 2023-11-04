@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { FC } from 'react'
 import styles from "./cards.module.css"
 import Image from "next/image"
@@ -10,7 +11,7 @@ interface CardsProps {
 }
 const Cards:FC<CardsProps> = ({isLast,postData}) => {
   return (
-    <div className={styles.container} >
+    <Link href={`/${postData.id}`} className={`${styles.container} cursor-pointer`} >
         <div className={styles.imageContainer}>
           <Image src={postData.img} alt="logo" fill />
         </div>
@@ -22,15 +23,15 @@ const Cards:FC<CardsProps> = ({isLast,postData}) => {
                 <span className={styles.date}>{moment(postData.createdAt).format('lll')}</span>
                 <span className={styles.category}>{postData.cat.title.toUpperCase()}</span>
             </div>
-            <Link href="/">
+
               <h3>{postData.title} </h3>
-            </Link>
+
             <div className={styles.desc}>
                <div dangerouslySetInnerHTML={{__html:postData.desc}}/>            
             </div>
-            <Link href="/blog" className={styles.link}>Read More</Link>
+            <Link href={`/${postData.id}`} className={styles.link}>Read More</Link>
         </div>
-    </div>
+    </Link>
   )
 }
 

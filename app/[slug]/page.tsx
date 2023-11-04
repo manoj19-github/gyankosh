@@ -4,8 +4,12 @@ import Image from "next/image";
 import Menu from "../components/menu";
 import CommentSection from "../components/comments";
 import BlogContent from "../components/BlogContent";
+import BlogItem from "../components/RelatedBlog/BlogItem";
+import RelatedBlog from "../components/RelatedBlog";
+import getSidebarPost from "../serverActions/getSidebarPost";
 interface PostDetailsPageProps {}
-const PostDetailsPage: FC<PostDetailsPageProps> = () => {
+const PostDetailsPage: FC<PostDetailsPageProps> = async() => {
+  const sidebarPosts = await getSidebarPost();
   return (
     <div className={styles.container}>
       <div className={styles.infoContainer}>
@@ -39,9 +43,13 @@ const PostDetailsPage: FC<PostDetailsPageProps> = () => {
           <div className={styles.commentssection}>
             <CommentSection />
           </div>
+          <div className={styles.relatedContent}>
+            <RelatedBlog postData={[]}/>
+
+          </div>
         </div>
         <div className={styles.sidebar}>
-          <Menu />
+          <Menu postData={sidebarPosts as any[]} />
         </div>
       </div>
     </div>
