@@ -11,10 +11,11 @@ const getAllPost=async(page=0)=>{
            
         },{skipNull:true});
         
-        const resp = await fetch(url);
+        const resp = await fetch(url,{cache:"no-store"});
 
         const data = await resp.json();
         console.log('data: ', data);
+        
         return data;
         
         

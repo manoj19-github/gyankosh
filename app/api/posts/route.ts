@@ -54,7 +54,6 @@ const PAGE_LIMIT=10;
 export async function GET(req:Request){
     try{
         const {searchParams} =await  new URL(req.url);
-        console.log('searchParams: ', searchParams);
         let page:any = searchParams.get("page");
         console.log('page: ', page);
         if(page==null || page== undefined) page=0;
@@ -64,6 +63,7 @@ export async function GET(req:Request){
             }
         });
         const allPost =  await database.post.findMany({
+            
             take:PAGE_LIMIT,
             skip:Number(page)*PAGE_LIMIT,
             include:{
@@ -74,6 +74,8 @@ export async function GET(req:Request){
                 createdAt:"desc"
             }
         });
+        console.log('allPost: ', allPost);
+ 
         const safePostData:any[] = allPost?.map((self)=>{
             return {
                 ...self,

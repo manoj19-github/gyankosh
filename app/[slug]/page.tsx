@@ -7,31 +7,44 @@ import BlogContent from "../components/BlogContent";
 import BlogItem from "../components/RelatedBlog/BlogItem";
 import RelatedBlog from "../components/RelatedBlog";
 import getSidebarPost from "../serverActions/getSidebarPost";
-interface PostDetailsPageProps {}
-const PostDetailsPage: FC<PostDetailsPageProps> = async() => {
+import getPostDetails from "../serverActions/getPostDetails";
+import moment from "moment";
+interface PostDetailsPageProps {
+  params:{slug:string}
+}
+const PostDetailsPage: FC<PostDetailsPageProps> = async({params}) => {
+
   const sidebarPosts = await getSidebarPost();
+  const postDetails = await getPostDetails(params.slug)
+  console.log('postDetails: ', postDetails);
+  if(!postDetails?.id) return(
+    <div className={styles.container}>
+      No Post found
+    </div>
+  )
+
   return (
     <div className={styles.container}>
       <div className={styles.infoContainer}>
         <div className={styles.imageContainer}>
-          <Image src={"/Mask-group.png"} alt="logo" fill />
+          <Image src={String(postDetails.img)} alt="logo" fill />
         </div>
         <div className={styles.textContainer}>
           <h1 className={styles.title}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            {postDetails?.title}
           </h1>
           <div className={styles.user}>
             <div className={styles.userImageContainer}>
               <Image
-                src={"/avatarimage.png"}
+                src={String(postDetails.user.image)}
                 alt="logo"
                 fill
                 className={styles.profileImage}
               />
             </div>
             <div className={styles.userTextContainer}>
-              <p className={styles.username}>Manoj Santra</p>
-              <p className={styles.date}>01.2.2023</p>
+              <p className={styles.username}>{postDetails.user.name}</p>
+              <p className={styles.date}>{moment(postDetails.createdAt).format('lll')}</p>
             </div>
           </div>
         </div>
@@ -39,12 +52,12 @@ const PostDetailsPage: FC<PostDetailsPageProps> = async() => {
 
       <div className={styles.content}>
         <div className={styles.post}>
-          <BlogContent />
+          <BlogContent content={postDetails.desc} />
           <div className={styles.commentssection}>
             <CommentSection />
           </div>
           <div className={styles.relatedContent}>
-            <RelatedBlog postData={[]}/>
+            <RelatedBlog postData={postDetails.relatedPosts}/>
 
           </div>
         </div>

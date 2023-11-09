@@ -9,6 +9,7 @@ interface RelatedBlogProps {
 }
 
 const RelatedBlog: FC<RelatedBlogProps> = ({postData}): JSX.Element => {
+  console.log('postData: ', postData);
   const [isMounted, setIsMounted] = useState<boolean>(false);
   useEffect(() => {
     setIsMounted(true);
@@ -16,6 +17,7 @@ const RelatedBlog: FC<RelatedBlogProps> = ({postData}): JSX.Element => {
   const rowRef = useRef<any>();
   const handleClick = (direction: string) => {
     // setIsMoved(true);
+    console.log("HIT DATA");
     if (rowRef.current) {
       const { scrollLeft, clientWidth } = rowRef.current;
       const scrollTo =

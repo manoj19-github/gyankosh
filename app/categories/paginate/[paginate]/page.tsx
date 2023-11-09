@@ -10,13 +10,13 @@ import getAllPost from '../../../serverActions/getAllPosts'
 import getSidebarPost from '@/app/serverActions/getSidebarPost'
 
 export default async function Home({params}:{params: { paginate:any}}) {
-  console.log('params: ', Number(params.paginate));
+  
 
   let postsDataset;
   const sidebarPosts = await getSidebarPost();
   if(Number(params.paginate) >0){
     postsDataset = await getAllPost(Number(params?.paginate));
-    console.log('postsDataset2: ', postsDataset);
+
 
   }else{
     postsDataset = await getAllPost();

@@ -20,6 +20,7 @@ const CardList: FC<CardListProps> = ({postData,totalLength,pageIndex,noPaginate,
         <div className={styles.cardContainer}>
           {!!postData && Array.isArray(postData) &&  postData.map((self, index) => (
             <Cards isLast={index !== 9} key={index} postData={self} />
+  
           ))}
           {
             !noPaginate ? (
