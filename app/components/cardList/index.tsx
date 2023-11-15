@@ -11,8 +11,9 @@ interface CardListProps {
  pageIndex:number;
  noPaginate?:boolean;
  sidebarData:PostInterface[] ;
+ searchedCategory?:string;
 }
-const CardList: FC<CardListProps> = ({postData,totalLength,pageIndex,noPaginate,sidebarData}) => {
+const CardList: FC<CardListProps> = ({postData,totalLength,pageIndex,noPaginate,sidebarData,searchedCategory}) => {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Recent Posts</h1>
@@ -23,8 +24,13 @@ const CardList: FC<CardListProps> = ({postData,totalLength,pageIndex,noPaginate,
   
           ))}
           {
+            Array.isArray(postData) && postData.length ===0 ?(
+              <h1 style={{textAlign:"center",marginTop:"20px",fontSize:"18px"}}>No Post Found</h1>
+            ):(<></>)
+          }
+          {
             !noPaginate ? (
-              <Pagination totalLength={totalLength} pageIndex={pageIndex} />
+              <Pagination totalLength={totalLength} pageIndex={pageIndex} searchedCategory={searchedCategory}/>
 
             ):(<></>)
           }

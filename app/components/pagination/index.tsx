@@ -8,8 +8,9 @@ import Link from "next/link";
 interface PaginationProps {
   totalLength: number;
   pageIndex: number;
+  searchedCategory?:string;
 }
-const Pagination: FC<PaginationProps> = ({ totalLength, pageIndex }) => {
+const Pagination: FC<PaginationProps> = ({ totalLength, pageIndex,searchedCategory }) => {
 
   const PAGE_LIMIT = 10;
   console.log('totalLength: ', totalLength);
@@ -18,14 +19,14 @@ const Pagination: FC<PaginationProps> = ({ totalLength, pageIndex }) => {
   return (
     <div className={styles.container}>
       {Number(pageIndex) > 1 ? (
-        <Link href={`/paginate/${Number(pageIndex) - 1}`} className={styles.button}>
+        <Link href={`${searchedCategory?`/categories/paginate/${Number(pageIndex) - 1}?cat=${searchedCategory}`:`/paginate/${Number(pageIndex) - 1}`}`} className={styles.button}>
           <HiOutlineArrowNarrowLeft className={styles.icons} />
           <span  className={styles.btnText}>
             Prev
           </span>
         </Link>
       ):Number(pageIndex)===1 ? (
-        <Link href={`/`} className={styles.button}>
+        <Link href={`${searchedCategory?`/categories?cat=${searchedCategory}`:`/`}`} className={styles.button}>
         <HiOutlineArrowNarrowLeft className={styles.icons} />
         <span className={styles.btnText}>
           Prev
@@ -33,7 +34,7 @@ const Pagination: FC<PaginationProps> = ({ totalLength, pageIndex }) => {
       </Link>
       ):(<div/>)}
       {Number(Number(pageIndex) * PAGE_LIMIT)+1 < Number(totalLength) && (
-        <Link href={`/paginate/${Number(pageIndex) + 1}`} className={styles.button}>
+        <Link href={`${searchedCategory ? `/categories/paginate/${Number(pageIndex) + 1}?cat=${searchedCategory}`:`/paginate/${Number(pageIndex) + 1}`}`} className={styles.button}>
           <HiOutlineArrowNarrowRight className={styles.icons} />
           <span  className={styles.btnText}>Next</span>
         </Link>
