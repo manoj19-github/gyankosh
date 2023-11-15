@@ -22,12 +22,18 @@
     border: none;
 }
 .button,.mobButton{
-    padding:10px 20px;
+    padding:10px 25px;
     background-color: crimson;
     color:white;
     cursor:pointer;
-    border:none;
+    border:1px solid transparent;
 
+}
+.button:hover,.mobButton:hover{
+    background-color: transparent;
+    color:crimson;
+    border:1px solid crimson;
+    font-weight: 900;
 }
 
 .user{

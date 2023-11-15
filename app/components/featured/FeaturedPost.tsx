@@ -50,6 +50,10 @@ const FeaturedPost:FC<FeaturedPostProps> = ({postData,totalLength}) => {
           <div className={styles.post}>
             <div className={styles.imgContainer}>
               <Image src={self.img} alt="logo" className={styles.images} fill/>
+              
+              <h1 className={styles.smallTitle}>
+                {self.catSlug}
+              </h1>
               <div className={styles.overlay}/>
             </div>
 

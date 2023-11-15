@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import database from "../../utils/db.config"
 import getCurrentUser from "@/app/serverActions/getCurrentUser";
 import { PostInterface } from "@/app/types";
+import randomString from "randomstring";
+
 
 
 export async function POST(request:Request){
@@ -25,7 +27,10 @@ export async function POST(request:Request){
         data:{
             posts:{
                 create:{
-                    slug:title.toLowerCase(),
+                    slug:randomString.generate({
+                        length: 32,
+                        charset: 'alphanumeric'
+                      }),
                     title:title.trim(),
                     img:!!assetUrl ? assetUrl :"",
                     desc:description,

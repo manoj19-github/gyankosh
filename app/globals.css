@@ -140,3 +140,16 @@ a:hover{
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+
+.animate-spin{
+  animation: myspin 2s ease 0.6s infinite;
+}
+@keyframes myspin {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+  

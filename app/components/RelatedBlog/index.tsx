@@ -9,7 +9,7 @@ interface RelatedBlogProps {
 }
 
 const RelatedBlog: FC<RelatedBlogProps> = ({postData}): JSX.Element => {
-  console.log('postData: ', postData);
+  
   const [isMounted, setIsMounted] = useState<boolean>(false);
   useEffect(() => {
     setIsMounted(true);

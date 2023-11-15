@@ -2,13 +2,18 @@ import database from "../utils/db.config";
 
 const getPostDetails = async (postId: string) => {
   try {
-    const postData = await database.post.findFirst({
+    const postData = await database.post.findUnique({
       where: {
         id: postId,
       },
       include: {
         cat: true,
         user: true,
+        comments: {
+          include: {
+            user: true,
+          },
+        },
       },
     });
     if (postData === null) return postData;

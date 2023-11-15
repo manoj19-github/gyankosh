@@ -89,6 +89,8 @@
         width:100%;
         grid-row: span 2 / span 2;
         grid-column: span 2 / span 2;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
     .title{
         padding-left: 10px;

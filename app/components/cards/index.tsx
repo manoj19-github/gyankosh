@@ -13,7 +13,7 @@ const Cards: FC<CardsProps> = ({ isLast, postData }) => {
     <div>
       <div
       
-        className={`${styles.container} cursor-pointer `}
+        className={`${styles.container}  `}
       >
         <div className={styles.imageContainer}>
           <Image src={postData.img} alt="logo" fill />

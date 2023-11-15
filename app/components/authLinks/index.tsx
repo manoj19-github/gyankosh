@@ -7,8 +7,10 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
 const AuthLinks = () => {
-  const isLoggedIn = false;
+
+
   const {data,status} = useSession();
+  console.log('status: ', status);
   const router = useRouter();
   const [open, setOpen] = useState<boolean>(false);
   const Icon = open ? AiOutlineClose : GiHamburgerMenu;
@@ -55,7 +57,7 @@ const AuthLinks = () => {
              <div className={styles.smallLink} onClick={navigateToWritePage}>
                <p>Write your blog </p>
              </div>
-             <div className={styles.link} onClick={() => signOut()}>
+             <div className={styles.smallLink} onClick={() => signOut()}>
                <p>Logout </p>
              </div>
            </>

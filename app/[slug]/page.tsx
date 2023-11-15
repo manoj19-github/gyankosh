@@ -9,14 +9,21 @@ import RelatedBlog from "../components/RelatedBlog";
 import getSidebarPost from "../serverActions/getSidebarPost";
 import getPostDetails from "../serverActions/getPostDetails";
 import moment from "moment";
+import getAllCommentsByPostId from "../serverActions/getAllComments";
 interface PostDetailsPageProps {
   params:{slug:string}
 }
 const PostDetailsPage: FC<PostDetailsPageProps> = async({params}) => {
 
   const sidebarPosts = await getSidebarPost();
-  const postDetails = await getPostDetails(params.slug)
+  const postDetails = await getPostDetails(params.slug);
   console.log('postDetails: ', postDetails);
+  // const allComments = await getAllCommentsByPostId(params.slug);
+  
+  
+  
+  
+  
   if(!postDetails?.id) return(
     <div className={styles.container}>
       No Post found
@@ -54,7 +61,7 @@ const PostDetailsPage: FC<PostDetailsPageProps> = async({params}) => {
         <div className={styles.post}>
           <BlogContent content={postDetails.desc} />
           <div className={styles.commentssection}>
-            <CommentSection />
+            <CommentSection postDetails={postDetails}  />
           </div>
           <div className={styles.relatedContent}>
             <RelatedBlog postData={postDetails.relatedPosts}/>
