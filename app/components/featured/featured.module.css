@@ -45,6 +45,10 @@
     font-size:15px;
     font-weight:400;
     color:var(--softTextColor);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
 }
 
 .button{

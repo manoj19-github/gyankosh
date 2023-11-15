@@ -52,6 +52,11 @@
     font-size: 15px;
     font-weight: 300;
     color:var(--softTextColor);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    
 }
 
 .borderBottom{
@@ -66,6 +71,13 @@
     color:#0F172A;
     
 }
+
+.overflow_hidden_text8 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+  }
 
 @media screen and (max-width:1024px) {
     .title{
