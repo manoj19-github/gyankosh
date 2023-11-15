@@ -8,7 +8,7 @@ import ThemeProvider from "./providers/ThemeProvider";
 import AuthProvider from "./providers/AuthProvider";
 import ClientOnly from "./components/ClientOnly";
 import ToasterProvider from "./components/providers/ToasterProvider";
-
+export const dynamic = "force-dynamic"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
