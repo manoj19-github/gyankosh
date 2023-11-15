@@ -29,7 +29,7 @@ const RelatedBlog: FC<RelatedBlogProps> = ({postData}): JSX.Element => {
   };
   if (!isMounted) return <></>;
   return (
-    <div className={styles.relatedContainer}>
+    <div className={styles.container}>
       <div className={styles.backArrow} onClick={() => handleClick("left")}>
         <IoIosArrowBack size={25} />
       </div>
