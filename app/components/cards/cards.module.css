@@ -108,12 +108,12 @@
    .imageContainerMob{
     display:block;
     width:100%;
-    height:150px;
+    height:300px;
 
     position: relative;
    }
    .image{
-    object-fit: contain;
+    object-fit: fill;
     height:150px;
     width:100%;
    }
